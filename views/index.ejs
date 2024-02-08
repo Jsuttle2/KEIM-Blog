@@ -1,0 +1,23 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Blog</title>
+</head>
+<body>
+  <h1>Simple Blog</h1>
+  <a href="/new">New Post</a>
+  <ul>
+    <% blogPosts.forEach(post => { %>
+      <li>
+        <h2><%= post.title %></h2>
+        <p><%= post.content %></p>
+        <img src="/uploads/<%= post.image %>" alt="<%= post.title %>">
+        <p>Posted on <%= post.createdAt.toDateString() %></p>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
